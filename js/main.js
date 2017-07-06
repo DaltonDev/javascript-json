@@ -19,6 +19,28 @@ xhr.onload = function(){
   if(xhr.status===200){
   var myStuff = JSON.parse(xhr.responseText);
   console.log(myStuff);
-  }
-}
+
+  for(i=0; i<myStuff.presidents.length; i++){
+    console.log(myStuff.presidents[i].first);
+    console.log(myStuff.presidents[i].last);
+    console.log(myStuff.presidents[i].served);
+
+    console.log(myStuff.vicepresidents[i].first);
+    console.log(myStuff.vicepresidents[i].last);
+  }//end for
+
+var mySting = "";
+  for(i=0; i<myStuff.presidents.length; i++){
+    var x=i+1;
+    mySting += "<br>President "+ x +" was ";
+    mySting += myStuff.presidents[i].first+ " ";
+    mySting += myStuff.presidents[i].last+ " ";
+
+    mySting += "He served from "+myStuff.presidents[i].served+" with ";
+    mySting += myStuff.vicepresidents[i].first+ " ";
+    mySting += myStuff.vicepresidents[i].last+ " ";
+  }//end for
+  document.getElementById('message').innerHTML = mySting;
+}//end if
+}//end function
 xhr.send();

@@ -1,46 +1,34 @@
-
-//Set up a new httprequest with the name xhr
+// JavaScript Document
+var hotelInfo;
+var details;
 var xhr = new XMLHttpRequest();
-//first parameter is for what we want to do (POST, GET, etc) Second is the path, and third is asyncronous (often true)
-xhr.open('GET', 'data.json', true);
-//Just to be safe that the return is of type text
+xhr.open('GET', "data.json", true);
 xhr.responseType = 'text';
-//Log messages
-xhr.onreadystatechange = function(){
-//Not really necessary
-  console.log(xhr.readyState);
-//Status should be 200 to indicate that everything is ok
-  console.log(xhr.status);
-  console.log(xhr.statusText);
-}
-//Do stuff after readystate is done. Parse the xhr response
-xhr.onload = function(){
-//check if status is 200, if not than this will not be executed
-  if(xhr.status===200){
-  var myStuff = JSON.parse(xhr.responseText);
-  console.log(myStuff);
-
-  for(i=0; i<myStuff.presidents.length; i++){
-    console.log(myStuff.presidents[i].first);
-    console.log(myStuff.presidents[i].last);
-    console.log(myStuff.presidents[i].served);
-
-    console.log(myStuff.vicepresidents[i].first);
-    console.log(myStuff.vicepresidents[i].last);
-  }//end for
-
-var mySting = "";
-  for(i=0; i<myStuff.presidents.length; i++){
-    var x=i+1;
-    mySting += "<br>President "+ x +" was ";
-    mySting += myStuff.presidents[i].first+ " ";
-    mySting += myStuff.presidents[i].last+ " ";
-
-    mySting += "He served from "+myStuff.presidents[i].served+" with ";
-    mySting += myStuff.vicepresidents[i].first+ " ";
-    mySting += myStuff.vicepresidents[i].last+ " ";
-  }//end for
-  document.getElementById('message').innerHTML = mySting;
-}//end if
-}//end function
 xhr.send();
+
+
+xhr.onload = function() {
+    if(xhr.status === 200) {
+        hotelInfo = JSON.parse(xhr.responseText);
+        console.log(hotelInfo);
+        //Load the first item in the json as soon as the page loads
+        display(0);
+    } // end if
+} // end function
+//x will depend on which room is clicked
+function display(x){
+  console.log(x);
+  document.getElementById('roomName').innerHTML = hotelInfo[x].name;
+  document.getElementById('desc').innerHTML = hotelInfo[x].description;
+  document.getElementById('photo').src = hotelInfo[x].photo;
+  document.getElementById('weekday').innerHTML = hotelInfo[x].cost.weekday;
+  document.getElementById('weekend').innerHTML = hotelInfo[x].cost.weekend;
+
+//do this to handle when there is an array of items
+  details = "";
+  for(i=0; i<hotelInfo[x].details.length; i++){
+    console.log(hotelInfo[x].details[i]);
+    details += "<p>"+hotelInfo[x].details[i]+"</p>";
+  }
+  document.getElementById('details').innerHTML = details;
+}

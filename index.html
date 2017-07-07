@@ -1,40 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Test</title>
-  <link href="css/styles.css" rel="stylesheet">
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+<meta charset="UTF-8">
+<title>New England Inn</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Alex+Brush|Lato:300,700" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet" type="text/css">
+
 </head>
+
 <body>
-  <div class="container-fluid">
-    <div class="row">
-        <h1>Hello, world!</h1>
-        <p id="message"></p>
+    <div id="headerWrapper">
+    <header>
+        <h1>New England Inn</h1>
+        <h2>Bed and Breakfast and Fun</h2>
+        <h3><a href="tel:18005551234">1-800-555-1234</a></h3>
+    </header>
     </div>
-  </div>
 
 
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-  integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-  integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-  <script type="text/javascript" src="js/main.js"></script>
+    <div id="navWrapper">
+    <nav>
+        <button onclick="display(0)">Southern Serenade</button>
+        <button onclick="display(1)">Enchanted Escape</button>
+        <button onclick="display(2)">Sandy Suite</button>
+
+    </nav>
+    <div class="keepOpen"></div>
+    </div>
+
+    <main>
+    <h1 id="roomName">Room Name</h1>
+    <p id="desc">In ut nunc dapibus cursus ultricies turpis ac nec mattis porttitor mid nunc.</p>
+    <figure class="photo"><img id="photo" src="images/placeholder.jpg" alt="room photo"></figure>
+
+           <section>
+        <h2>Cost</h2>
+        <p>Weekday <span id="weekday">$000.00</span></p>
+        <p>Weekend <span id="weekend">$000.00</span></p>
+        <a class="reserve" href="#">Make a Reservation</a>
+    </section>
+
+    <section>
+        <h2>Amenities</h2>
+        <div id="details">
+        <p>Sample Item 1</p>
+            <p>Sample Item 1</p>
+            <p>Sample Item 1</p>
+            <p>Sample Item 1</p>
+            <p>Sample Item 1</p>
+        </div>
+    </section>
+
+
+
+
+        <div class="keepOpen"></div>
+    </main>
+    <div id="footerWrapper">
+        <footer><p>&copy Paul Cheney &bull; Pluralsight Project Template</p></footer>
+    </div>
+
+
+
 </body>
+<script type="text/javascript" src="js/main.js"></script>
 </html>
